@@ -44,7 +44,7 @@ class CloneObjectMap
     {
         $result = clone $this->instance;
 
-        foreach(get_object_vars($inputObject) as $key => $value) {
+        foreach (get_object_vars($inputObject) as $key => $value) {
             $result->{$this->map[$key]} = $value;
         }
 
