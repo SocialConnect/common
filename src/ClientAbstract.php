@@ -4,6 +4,12 @@
  * @author: Patsura Dmitry @ovr <talk@dmtry.me>
  */
 
+namespace SocialConnect\Common;
+
+/**
+ * Class ClientAbstract
+ * @package SocialConnect\Common
+ */
 abstract class ClientAbstract
 {
     /**
