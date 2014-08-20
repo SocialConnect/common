@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-
+	"php": "~5.3",
+        "ext-json": "*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "1.5.2"
