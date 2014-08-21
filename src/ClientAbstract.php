@@ -35,7 +35,7 @@ abstract class ClientAbstract
     /**
      * @param int $appId
      * @param string $appSecret
-     * @param null $accessToken
+     * @param null st$accessToken
      * @throws InvalidArgumentException
      */
     public function __construct($appId, $appSecret, $accessToken = null)
