@@ -5,6 +5,7 @@
  */
 
 namespace SocialConnect\Common;
+
 use InvalidArgumentException;
 
 /**
@@ -35,7 +36,7 @@ abstract class ClientAbstract
     /**
      * @param int $appId
      * @param string $appSecret
-     * @param null st$accessToken
+     * @param null $accessToken
      * @throws InvalidArgumentException
      */
     public function __construct($appId, $appSecret, $accessToken = null)
