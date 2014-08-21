@@ -5,6 +5,7 @@
  */
 
 namespace SocialConnect\Common;
+use InvalidArgumentException;
 
 /**
  * Class ClientAbstract
@@ -32,13 +33,21 @@ abstract class ClientAbstract
     protected $accessToken;
 
     /**
-     * @param string|integer $appId
+     * @param int $appId
      * @param string $appSecret
      * @param null $accessToken
+     * @throws InvalidArgumentException
      */
     public function __construct($appId, $appSecret, $accessToken = null)
     {
+        if (!is_int($appId)) {
+            throw new InvalidArgumentException('$appId must be int');
+        }
         $this->appId = $appId;
+
+        if (!is_string($appSecret)) {
+            throw new InvalidArgumentException('$appSecret must be string');
+        }
         $this->appSecret = $appSecret;
 
         if ($accessToken) {
