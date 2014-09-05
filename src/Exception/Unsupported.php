@@ -4,7 +4,6 @@
  * @author: Patsura Dmitry https://github.com/ovr <talk@dmtry.me>
  */
 
-
 namespace SocialConnect\Common\Exception;
 
 class Unsupported extends \SocialConnect\Common\Exception
@@ -13,4 +12,4 @@ class Unsupported extends \SocialConnect\Common\Exception
     {
         parent::__construct($message, $code, $previous);
     }
-} 
+}

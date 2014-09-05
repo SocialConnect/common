@@ -13,4 +13,4 @@ namespace SocialConnect\Common;
 class Exception extends \Exception
 {
 
-} 
+}
