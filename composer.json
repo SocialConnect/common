@@ -9,8 +9,9 @@
         }
     ],
     "require": {
-	"php": "~5.3",
-        "ext-json": "*"
+	    "php": "~5.3",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~4.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "1.5.2",
