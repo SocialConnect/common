@@ -8,7 +8,7 @@ namespace SocialConnect\Common\Http\Client;
 
 use \GuzzleHttp\Client;
 
-class Guzzle
+class Guzzle extends Client
 {
     /**
      * @var Client
@@ -18,5 +18,10 @@ class Guzzle
     public function __construct(Client $client = null)
     {
         $this->client = $client;
+    }
+
+    public function send($uri, $parameters = array(), $method = 'GET')
+    {
+
     }
 }
