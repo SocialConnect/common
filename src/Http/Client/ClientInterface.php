@@ -11,5 +11,5 @@ namespace SocialConnect\Common\Http\Client;
 
 interface ClientInterface
 {
-    public function send($url, array $parameters = array(), $method = 'GET');
+    public function makeRequest($url, array $parameters = array(), $method = 'GET');
 } 

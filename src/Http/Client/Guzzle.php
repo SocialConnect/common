@@ -6,22 +6,25 @@
 
 namespace SocialConnect\Common\Http\Client;
 
-use \GuzzleHttp\Client;
+use \GuzzleHttp\Client as GuzzleClient;
 
 class Guzzle extends Client
 {
     /**
-     * @var Client
+     * @var GuzzleClient
      */
     protected $client;
 
-    public function __construct(Client $client = null)
+    /**
+     * @param GuzzleClient $client
+     */
+    public function __construct(GuzzleClient $client = null)
     {
         $this->client = $client;
     }
 
-    public function send($uri, $parameters = array(), $method = 'GET')
+    public function makeRequest($url, array $parameters = array(), $method = 'GET')
     {
-
+        $request = $this->client->createRequest($method, $url, $parameters);
     }
 }
