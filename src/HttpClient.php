@@ -29,4 +29,4 @@ trait HttpClient
     {
         return $this->httpClient;
     }
-} 
+}
