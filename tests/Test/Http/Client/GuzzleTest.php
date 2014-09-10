@@ -19,4 +19,10 @@ class GuzzleTest extends \PHPUnit_Framework_TestCase
         $client = new Guzzle(new Client());
         $this->assertInstanceOf('SocialConnect\Common\Http\Client\Client', $client);
     }
+
+    public function testRequest()
+    {
+        $client = new Guzzle(new Client());
+        $client->request('http://phalcon-module.dmtry.me/api/users/get/1/');
+    }
 }

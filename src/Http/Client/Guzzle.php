@@ -7,6 +7,7 @@
 namespace SocialConnect\Common\Http\Client;
 
 use \GuzzleHttp\Client as GuzzleClient;
+use \SocialConnect\Common\Http\Response;
 
 class Guzzle extends Client
 {
@@ -23,8 +24,10 @@ class Guzzle extends Client
         $this->client = is_null($client) ? new GuzzleClient() : $client;
     }
 
-    public function makeRequest($url, array $parameters = array(), $method = Client::GET)
+    public function request($url, array $parameters = array(), $method = Client::GET)
     {
-        $request = $this->client->createRequest($method, $url, $parameters);
+        $response = $this->client->send($this->client->createRequest($method, $url, $parameters));
+
+        return new Response($response->getStatusCode(), (string) $response->getBody());
     }
 }
