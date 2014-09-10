@@ -20,7 +20,7 @@ class Guzzle extends Client
      */
     public function __construct(GuzzleClient $client = null)
     {
-        $this->client = $client;
+        $this->client = is_null($client) ? new GuzzleClient() : $client;
     }
 
     public function makeRequest($url, array $parameters = array(), $method = Client::GET)
