@@ -9,7 +9,7 @@ namespace SocialConnect\Common\Http;
 class Response
 {
     /**
-     * @var string
+     * @var int
      */
     protected $statusCode;
 
@@ -49,7 +49,7 @@ class Response
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getStatusCode()
     {
