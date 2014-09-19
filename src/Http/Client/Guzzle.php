@@ -25,10 +25,7 @@ class Guzzle extends Client
     }
 
     /**
-     * @param $url
-     * @param array $parameters
-     * @param string $method
-     * @return Response
+     * {@inheritdoc}
      */
     public function request($url, array $parameters = array(), $method = Client::GET)
     {
