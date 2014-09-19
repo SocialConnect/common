@@ -8,8 +8,14 @@ namespace SocialConnect\Common\Http;
 
 class Response
 {
+    /**
+     * @var string
+     */
     protected $statusCode;
 
+    /**
+     * @var string|boolean|null
+     */
     protected $body;
 
     /**
