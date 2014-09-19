@@ -36,6 +36,7 @@ class Curl extends Client
                 break;
         }
 
+        curl_setopt($this->client, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->client, CURLOPT_URL, $url);
         curl_setopt($this->client, CURLOPT_HEADER, 0);
 
