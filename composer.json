@@ -10,12 +10,15 @@
     ],
     "require": {
 	    "php": "~5.4",
-        "ext-json": "*",
-        "guzzlehttp/guzzle": "~4.0"
+        "ext-json": "*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "1.5.2",
-        "phpunit/phpunit": "~4.2"
+        "phpunit/phpunit": "~4.2",
+        "guzzlehttp/guzzle": "~4.0"
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "Allows to use Http\\Client\\Guzzle wrapper"
     },
     "autoload": {
         "psr-4": {
