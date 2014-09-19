@@ -31,6 +31,18 @@ class Response
     }
 
     /**
+     * @return mixed|null
+     */
+    public function json()
+    {
+        if ($this->body) {
+            return json_decode($this->body);
+        }
+
+        return null;
+    }
+
+    /**
      * @return mixed
      */
     public function getStatusCode()
