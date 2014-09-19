@@ -49,6 +49,16 @@ class Response
     }
 
     /**
+     * Is Server Error? (All 5xx Codes)
+     *
+     * @return bool
+     */
+    public function isServerError()
+    {
+        return $this->statusCode > 499 && $this->statusCode < 600;
+    }
+
+    /**
      * @return int
      */
     public function getStatusCode()
