@@ -24,6 +24,12 @@ class Guzzle extends Client
         $this->client = is_null($client) ? new GuzzleClient() : $client;
     }
 
+    /**
+     * @param $url
+     * @param array $parameters
+     * @param string $method
+     * @return Response
+     */
     public function request($url, array $parameters = array(), $method = Client::GET)
     {
         $response = $this->client->send($this->client->createRequest($method, $url, $parameters));
