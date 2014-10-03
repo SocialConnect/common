@@ -10,7 +10,7 @@ namespace SocialConnect\Common\Entity;
  * Class User
  * @package SocialConnect\Common\Entity
  */
-class User
+class User extends \stdClass
 {
     /**
      * @var string
@@ -26,4 +26,9 @@ class User
      * @var string
      */
     public $lastname;
+
+    /**
+     * @var string
+     */
+    public $email;
 }
