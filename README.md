@@ -1,5 +1,8 @@
 SocialConnect Common
 ====================
+[![Build Status](http://img.shields.io/travis/SocialConnect/common.svg?style=flat)](https://travis-ci.org/SocialConnect/common)
+[![Code Coverage](http://img.shields.io/coveralls/SocialConnect/common.svg?style=flat)](https://coveralls.io/r/SocialConnect/common)
+[![License](http://img.shields.io/packagist/l/SocialConnect/common.svg?style=flat)](https://packagist.org/packages/socialconnect/common)
 
 ## Http\Client
 
