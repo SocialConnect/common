@@ -15,7 +15,7 @@ or `Guzzle` wrapper for GuzzleHttp library
   $httpClient = new SocialConnect\Common\Http\Client\Guzzle();
 ```
 
-## Build your neede `Client` for Rest Api
+## Build `Client` for your REST API application
 
 ```php
 use SocialConnect\Common\ClientAbstract;
