@@ -45,7 +45,7 @@ class MySocialNetworkClient extends ClientAbstract
 
 Next you can use it
 
-```
+```php
 $client = new MySocialNetworkClient($appId, $appSecret);
 $client->setHttpClient(new SocialConnect\Common\Http\Client\Curl());
 
