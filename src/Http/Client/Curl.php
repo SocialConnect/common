@@ -6,7 +6,7 @@
 
 namespace SocialConnect\Common\Http\Client;
 
-use \SocialConnect\Common\Http\Response;
+use SocialConnect\Common\Http\Response;
 use RuntimeException;
 
 class Curl extends Client
