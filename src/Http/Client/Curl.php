@@ -7,6 +7,7 @@
 namespace SocialConnect\Common\Http\Client;
 
 use \SocialConnect\Common\Http\Response;
+use RuntimeException;
 
 class Curl extends Client
 {
@@ -19,6 +20,10 @@ class Curl extends Client
 
     public function __construct()
     {
+        if (!extension_loaded('curl')) {
+            throw new RuntimeException('You need to install curl-ext for use SocialConnect-Http\Client\Curl.');
+        }
+
         $this->client = curl_init();
     }
 
