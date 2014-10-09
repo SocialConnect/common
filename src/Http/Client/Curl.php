@@ -39,6 +39,7 @@ class Curl extends Client
         curl_setopt($this->client, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->client, CURLOPT_URL, $url);
         curl_setopt($this->client, CURLOPT_HEADER, 0);
+        curl_setopt($this->client, CURLOPT_USERAGENT, 'SocialConnect-Http-Client-Curl' . curl_version()['version']);
 
 
         if (!$result = curl_exec($this->client)) {
