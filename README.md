@@ -4,6 +4,22 @@ SocialConnect Common
 [![Code Coverage](http://img.shields.io/coveralls/SocialConnect/common.svg?style=flat)](https://coveralls.io/r/SocialConnect/common)
 [![License](http://img.shields.io/packagist/l/SocialConnect/common.svg?style=flat)](https://packagist.org/packages/socialconnect/common)
 
+## Enitity
+
++ User
++ Friend
+
+You can intance and setup fields for entity
+
+```php
+$user = new \SocialConnect\Common\Entity\User();
+$user->id = 12345;
+$user->firstname = 'Dmitry';
+$user->lastname = 'Patsura';
+
+var_dump($user);
+```
+
 ## Http\Client
 
 You can use `Curl` client
