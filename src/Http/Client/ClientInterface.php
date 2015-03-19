@@ -6,7 +6,6 @@
 
 namespace SocialConnect\Common\Http\Client;
 
-
 interface ClientInterface
 {
     /**
