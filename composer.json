@@ -13,7 +13,7 @@
         "ext-json": "*"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "~2.1.0",
+        "squizlabs/php_codesniffer": "~2.3",
         "phpunit/phpunit": "~4.2",
         "guzzlehttp/guzzle": "~4.0"
     },
