@@ -74,3 +74,10 @@ $user = $client->getUser(1);
 $client->requestMethod('myTestMethod', []);
 $client->requestMethod('myTest', []);
 ```
+
+License
+-------
+
+This project is open-sourced software licensed under the MIT License.
+
+See the LICENSE file for more information.
