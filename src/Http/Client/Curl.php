@@ -7,6 +7,7 @@
 namespace SocialConnect\Common\Http\Client;
 
 use SocialConnect\Common\Http\Response;
+use SocialConnect\Common\Exception;
 use RuntimeException;
 
 class Curl extends Client
@@ -48,7 +49,7 @@ class Curl extends Client
 
 
         if (!$result = curl_exec($this->client)) {
-            throw new \Exception('Curl http Error');
+            throw new Exception('Curl http Error');
         }
 
         return new Response(curl_getinfo($this->client, CURLINFO_HTTP_CODE), $result);
