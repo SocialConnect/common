@@ -11,10 +11,11 @@ interface ClientInterface
     /**
      * Request specify url
      *
-     * @param $url
+     * @param string $url
      * @param array $parameters
      * @param string $method
+     * @param array $options
      * @return \SocialConnect\Common\Http\Response
      */
-    public function request($url, array $parameters = array(), $method = Client::GET);
+    public function request($url, array $parameters = array(), $method = Client::GET, array $options = array());
 }

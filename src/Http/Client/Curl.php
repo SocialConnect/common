@@ -31,7 +31,7 @@ class Curl extends Client
     /**
      * {@inheritdoc}
      */
-    public function request($url, array $parameters = array(), $method = Client::GET)
+    public function request($url, array $parameters = array(), $method = Client::GET, array $options = array())
     {
         switch ($method) {
             case Client::POST:
