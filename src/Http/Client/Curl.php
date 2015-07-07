@@ -35,6 +35,15 @@ class Curl extends Client
     {
         switch ($method) {
             case Client::POST:
+                if (count($parameters) > 0) {
+                    $fields = [];
+                    foreach ($parameters as $name => $value) {
+                        $fields[] = urlencode($name) . '=' . urlencode($value);
+                    }
+
+                    curl_setopt($this->client, CURLOPT_POSTFIELDS, implode('&', $fields));
+                    unset($fields);
+                }
                 curl_setopt($this->client, CURLOPT_POST, true);
                 break;
             case Client::GET:
@@ -53,15 +62,15 @@ class Curl extends Client
         }
 
         $response = new Response(curl_getinfo($this->client, CURLINFO_HTTP_CODE), $result);
-        
+
         /**
          * Reset all options of a libcurl client after request
          */
         curl_reset($this->client);
-        
+
         return $response;
     }
-    
+
     public function setOption($option, $value)
     {
         curl_setopt($this->client, $option, $value);
