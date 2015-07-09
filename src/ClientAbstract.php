@@ -41,7 +41,7 @@ abstract class ClientAbstract
      */
     public function __construct($appId, $appSecret, $accessToken = null)
     {
-        if (!empty($appId)) {
+        if (empty($appId)) {
             throw new InvalidArgumentException('$appId cannot be empty');
         }
         $this->appId = $appId;
