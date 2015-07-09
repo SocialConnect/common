@@ -41,8 +41,8 @@ abstract class ClientAbstract
      */
     public function __construct($appId, $appSecret, $accessToken = null)
     {
-        if (!is_int($appId)) {
-            throw new InvalidArgumentException('$appId must be int');
+        if (!empty($appId)) {
+            throw new InvalidArgumentException('$appId cannot be empty');
         }
         $this->appId = $appId;
 
