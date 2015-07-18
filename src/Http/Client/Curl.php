@@ -47,6 +47,22 @@ class Curl extends Client
                 curl_setopt($this->client, CURLOPT_POST, true);
                 break;
             case Client::GET:
+                if (count($parameters) > 0) {
+                    foreach ($parameters as $key => $parameter) {
+                        if (is_array($parameter)) {
+                            $parameters[$key] = implode(',', $parameter);
+                        }
+                    }
+
+                    if (strpos($url, '?') === false) {
+                        $url .= '?';
+                    } else {
+                        $url .= '&';
+                    }
+
+                    $url .= http_build_query($parameters);
+                }
+
                 curl_setopt($this->client, CURLOPT_HTTPGET, true);
                 break;
         }
