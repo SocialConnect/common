@@ -37,4 +37,9 @@ abstract class Client implements ClientInterface
      * @var string
      */
     const HEAD = 'HEAD';
+
+    /**
+     * @var string
+     */
+    const DELETE = 'DELETE';
 }

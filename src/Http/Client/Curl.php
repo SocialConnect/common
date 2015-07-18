@@ -35,6 +35,25 @@ class Curl extends Client
     {
         switch ($method) {
             case Client::POST:
+                curl_setopt($this->client, CURLOPT_POST, true);
+                break;
+            case Client::GET:
+                curl_setopt($this->client, CURLOPT_HTTPGET, true);
+                break;
+            case Client::DELETE:
+            case Client::PATCH:
+            case Client::OPTIONS:
+            case Client::PUT:
+            case Client::HEAD:
+                curl_setopt($this->client, CURLOPT_CUSTOMREQUEST, $method);
+                break;
+            default:
+                throw new \InvalidArgumentException('Method {$method} is not supported');
+                break;
+        }
+
+        switch ($method) {
+            case Client::POST:
                 if (count($parameters) > 0) {
                     $fields = [];
                     foreach ($parameters as $name => $value) {
@@ -44,9 +63,8 @@ class Curl extends Client
                     curl_setopt($this->client, CURLOPT_POSTFIELDS, implode('&', $fields));
                     unset($fields);
                 }
-                curl_setopt($this->client, CURLOPT_POST, true);
                 break;
-            case Client::GET:
+            default:
                 if (count($parameters) > 0) {
                     foreach ($parameters as $key => $parameter) {
                         if (is_array($parameter)) {
@@ -62,8 +80,6 @@ class Curl extends Client
 
                     $url .= http_build_query($parameters);
                 }
-
-                curl_setopt($this->client, CURLOPT_HTTPGET, true);
                 break;
         }
 
