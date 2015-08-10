@@ -31,7 +31,7 @@ class Curl extends Client
     /**
      * {@inheritdoc}
      */
-    public function request($url, array $parameters = array(), $method = Client::GET, array $options = array())
+    public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
     {
         switch ($method) {
             case Client::POST:
@@ -83,6 +83,7 @@ class Curl extends Client
                 break;
         }
 
+        curl_setopt($this->client, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($this->client, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->client, CURLOPT_URL, $url);
         curl_setopt($this->client, CURLOPT_HEADER, 0);
