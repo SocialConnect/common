@@ -90,7 +90,7 @@ class Curl extends Client
         curl_setopt($this->client, CURLOPT_USERAGENT, 'SocialConnect-Http-Client-Curl' . curl_version()['version']);
 
         $result = curl_exec($this->client);
-        if (!$result) {
+        if ($result === false) {
             throw new Exception('Curl http Error');
         }
 
