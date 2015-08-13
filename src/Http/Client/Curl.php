@@ -96,15 +96,15 @@ class Curl extends Client
 
         $response = new Response(curl_getinfo($this->client, CURLINFO_HTTP_CODE), $result);
 
-        if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
-            /**
-             * Reset all options of a libcurl client after request
-             */
-            curl_reset($this->client);
-        } else {
-            unset($this->client);
-            $this->client = curl_init();
-        }
+        // if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
+        //     /**
+        //      * Reset all options of a libcurl client after request
+        //      */
+        //     curl_reset($this->client);
+        // } else {
+        //     unset($this->client);
+        //     $this->client = curl_init();
+        // }
 
         return $response;
     }
