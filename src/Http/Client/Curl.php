@@ -6,6 +6,7 @@
 
 namespace SocialConnect\Common\Http\Client;
 
+use InvalidArgumentException;
 use SocialConnect\Common\Http\Response;
 use SocialConnect\Common\Exception;
 use RuntimeException;
@@ -48,7 +49,7 @@ class Curl extends Client
                 curl_setopt($this->client, CURLOPT_CUSTOMREQUEST, $method);
                 break;
             default:
-                throw new \InvalidArgumentException('Method {$method} is not supported');
+                throw new InvalidArgumentException('Method {$method} is not supported');
                 break;
         }
 
