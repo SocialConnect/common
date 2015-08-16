@@ -32,7 +32,7 @@ class Curl extends Client
     /**
      * {@inheritdoc}
      */
-    public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
+    public function request($uri, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
     {
         switch ($method) {
             case Client::POST:
@@ -73,20 +73,20 @@ class Curl extends Client
                         }
                     }
 
-                    if (strpos($url, '?') === false) {
-                        $url .= '?';
+                    if (strpos($uri, '?') === false) {
+                        $uri .= '?';
                     } else {
-                        $url .= '&';
+                        $uri .= '&';
                     }
 
-                    $url .= http_build_query($parameters);
+                    $uri .= http_build_query($parameters);
                 }
                 break;
         }
 
         curl_setopt($this->client, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($this->client, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($this->client, CURLOPT_URL, $url);
+        curl_setopt($this->client, CURLOPT_URL, $uri);
         curl_setopt($this->client, CURLOPT_HEADER, 0);
         curl_setopt($this->client, CURLOPT_USERAGENT, 'SocialConnect-Http-Client-Curl' . curl_version()['version']);
 
