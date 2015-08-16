@@ -50,7 +50,6 @@ class Curl extends Client
                 break;
             default:
                 throw new InvalidArgumentException("Method {$method} is not supported");
-                break;
         }
 
         switch ($method) {
