@@ -27,7 +27,7 @@ class Guzzle extends Client
     /**
      * {@inheritdoc}
      */
-    public function request($url, array $parameters = array(), $method = Client::GET, array $options = array())
+    public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
     {
         $response = $this->client->send($this->client->createRequest($method, $url, $options));
 
