@@ -49,7 +49,7 @@ class Curl extends Client
                 curl_setopt($this->client, CURLOPT_CUSTOMREQUEST, $method);
                 break;
             default:
-                throw new InvalidArgumentException('Method {$method} is not supported');
+                throw new InvalidArgumentException("Method {$method} is not supported");
                 break;
         }
 
