@@ -7,6 +7,7 @@
 namespace SocialConnect\Common\Http\Client;
 
 use \GuzzleHttp\Client as GuzzleClient;
+use InvalidArgumentException;
 use \SocialConnect\Common\Http\Response;
 
 class Guzzle extends Client
@@ -27,9 +28,18 @@ class Guzzle extends Client
     /**
      * {@inheritdoc}
      */
-    public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
+    public function request($uri, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
     {
-        $response = $this->client->send($this->client->createRequest($method, $url, $options));
+        switch ($method) {
+            case Client::GET:
+                $response = $this->client->get($uri, ['query' => $parameters, 'headers' => $headers]);
+                break;
+            case Client::POST:
+                $response = $this->client->post($uri, ['form_params' => $parameters, 'headers' => $headers]);
+                break;
+            default:
+                throw new InvalidArgumentException("Method {$method} is not supported");
+        }
 
         return new Response($response->getStatusCode(), (string) $response->getBody());
     }
