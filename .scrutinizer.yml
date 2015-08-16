@@ -10,7 +10,7 @@ tools:
         config:
             standard: PSR2
         filter:
-            paths: ["src/*", "tests/*", "providers/*"]
+            paths: ["src/*", "tests/*"]
     php_cpd:
         enabled: true
         excluded_dirs: ["vendor"]
@@ -26,7 +26,7 @@ tools:
             paths: ["src/*"]
     php_pdepend:
         enabled: true
-        excluded_dirs: ["tests", "vendor", "fixtures"]
+        excluded_dirs: ["tests", "vendor"]
     php_analyzer:
         enabled: true
         filter:
