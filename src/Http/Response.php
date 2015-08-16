@@ -8,6 +8,8 @@ namespace SocialConnect\Common\Http;
 
 class Response
 {
+    const STATUS_OK = 200;
+
     /**
      * @var int
      */
@@ -46,6 +48,14 @@ class Response
         }
 
         return null;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOk()
+    {
+        return $this->statusCode == self::STATUS_OK;
     }
 
     /**
