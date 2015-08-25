@@ -83,6 +83,19 @@ class Curl extends Client
                 break;
         }
 
+        /**
+         * Prepare function for headers like this
+         *
+         * array('Authorization' => 'token fdsfds')
+         */
+        if (count($headers) > 0) {
+            foreach ($headers as $key => $header) {
+                if (!is_int($key)) {
+                    $headers[$key] = $key . ': ' . $header;
+                }
+            }
+        }
+        
         curl_setopt($this->client, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($this->client, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->client, CURLOPT_URL, $uri);
