@@ -22,7 +22,7 @@ class CurlTest extends \PHPUnit_Framework_TestCase
     public function testRequest()
     {
         $client = new Curl();
-        $response = $client->request('https://phalcon-module.dmtry.me/api/users/get/1/');
+        $response = $client->request('https://api.dmtry.me/api/users/get/1/');
 
         $this->assertInstanceOf('SocialConnect\Common\Http\Response', $response);
         $this->assertTrue($response->isOk());
