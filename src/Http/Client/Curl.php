@@ -20,8 +20,21 @@ class Curl extends Client
      */
     protected $client;
 
-    public function __construct()
+    protected $parameters = array(
+        CURLOPT_USERAGENT => 'SocialConnect\Curl (https://github.com/socialconnect/common) v0.6',
+        CURLOPT_HEADER => false,
+        CURLOPT_RETURNTRANSFER => true
+    );
+
+    /**
+     * @param array|null $parameters
+     */
+    public function __construct(array $parameters = null)
     {
+        if ($parameters) {
+            $this->parameters = array_merge($this->parameters, $parameters);
+        }
+
         if (!extension_loaded('curl')) {
             throw new RuntimeException('You need to install curl-ext for use SocialConnect-Http\Client\Curl.');
         }
@@ -95,12 +108,16 @@ class Curl extends Client
                 }
             }
         }
-        
+
+        /**
+         * Setup default parameters
+         */
+        foreach ($this->parameters as $key => $value) {
+            curl_setopt($this->client, $key, $value);
+        }
+
         curl_setopt($this->client, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($this->client, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->client, CURLOPT_URL, $uri);
-        curl_setopt($this->client, CURLOPT_HEADER, 0);
-        curl_setopt($this->client, CURLOPT_USERAGENT, 'SocialConnect-Http-Client-Curl' . curl_version()['version']);
 
         $result = curl_exec($this->client);
         if ($result === false) {
@@ -125,5 +142,21 @@ class Curl extends Client
     public function setOption($option, $value)
     {
         curl_setopt($this->client, $option, $value);
+    }
+
+    /**
+     * @return array
+     */
+    public function getParameters()
+    {
+        return $this->parameters;
+    }
+
+    /**
+     * @param array $parameters
+     */
+    public function setParameters($parameters)
+    {
+        $this->parameters = $parameters;
     }
 }
