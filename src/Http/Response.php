@@ -16,7 +16,7 @@ class Response implements ResponseInterface
     protected $statusCode;
 
     /**
-     * @var string|boolean|null
+     * @var string|boolean
      */
     protected $body;
 
@@ -31,7 +31,7 @@ class Response implements ResponseInterface
     }
 
     /**
-     * @return mixed
+     * @return string|boolean
      */
     public function getBody()
     {

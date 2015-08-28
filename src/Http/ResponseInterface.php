@@ -11,7 +11,7 @@ interface ResponseInterface
     /**
      * Get body of Response
      *
-     * @return string
+     * @return string|boolean
      */
     public function getBody();
 
