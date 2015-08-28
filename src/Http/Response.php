@@ -6,7 +6,7 @@
 
 namespace SocialConnect\Common\Http;
 
-class Response
+class Response implements ResponseInterface
 {
     const STATUS_OK = 200;
 
