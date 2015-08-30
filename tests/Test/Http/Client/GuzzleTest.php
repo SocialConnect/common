@@ -28,6 +28,7 @@ class GuzzleTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('SocialConnect\Common\Http\Response', $response);
         $this->assertTrue($response->isOk());
         $this->assertInternalType('string', $response->getBody());
+        $this->assertInternalType('integer', $response->getStatusCode());
         $this->assertInternalType('object', $response->json());
     }
 }
