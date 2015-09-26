@@ -30,5 +30,6 @@ class GuzzleTest extends \PHPUnit_Framework_TestCase
         static::assertInternalType('string', $response->getBody());
         static::assertInternalType('integer', $response->getStatusCode());
         static::assertInternalType('object', $response->json());
+        static::assertInternalType('array', $response->json(true));
     }
 }
