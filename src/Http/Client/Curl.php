@@ -141,6 +141,10 @@ class Curl extends Client
         return $response;
     }
 
+    /**
+     * @param $option
+     * @param $value
+     */
     public function setOption($option, $value)
     {
         curl_setopt($this->client, $option, $value);
