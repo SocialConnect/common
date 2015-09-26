@@ -39,12 +39,15 @@ class Response implements ResponseInterface
     }
 
     /**
+     * @param bool|false $assoc
+     * @param int $depth
+     * @param int $options
      * @return mixed|null
      */
-    public function json()
+    public function json($assoc = false, $depth = 512, $options = 0)
     {
         if ($this->body) {
-            return json_decode($this->body);
+            return json_decode($this->body, $assoc, $depth, $options);
         }
 
         return null;
