@@ -14,10 +14,10 @@ class GuzzleTest extends \PHPUnit_Framework_TestCase
     public function testConstructSuccess()
     {
         $client = new Guzzle();
-        $this->assertInstanceOf('SocialConnect\Common\Http\Client\Client', $client);
+        static::assertInstanceOf('SocialConnect\Common\Http\Client\Client', $client);
 
         $client = new Guzzle(new Client());
-        $this->assertInstanceOf('SocialConnect\Common\Http\Client\Client', $client);
+        static::assertInstanceOf('SocialConnect\Common\Http\Client\Client', $client);
     }
 
     public function testGetRequest()
@@ -25,10 +25,10 @@ class GuzzleTest extends \PHPUnit_Framework_TestCase
         $client = new Guzzle(new Client());
         $response = $client->request('https://api.dmtry.me/api/users/get/1/');
 
-        $this->assertInstanceOf('SocialConnect\Common\Http\Response', $response);
-        $this->assertTrue($response->isOk());
-        $this->assertInternalType('string', $response->getBody());
-        $this->assertInternalType('integer', $response->getStatusCode());
-        $this->assertInternalType('object', $response->json());
+        static::assertInstanceOf('SocialConnect\Common\Http\Response', $response);
+        static::assertTrue($response->isOk());
+        static::assertInternalType('string', $response->getBody());
+        static::assertInternalType('integer', $response->getStatusCode());
+        static::assertInternalType('object', $response->json());
     }
 }

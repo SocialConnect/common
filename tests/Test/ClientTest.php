@@ -11,6 +11,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testConstructSuccess()
     {
         $client = new SimpleClient(12345, "appsecret");
-        $this->assertInstanceOf('SocialConnect\Common\ClientAbstract', $client);
+        static::assertInstanceOf('SocialConnect\Common\ClientAbstract', $client);
     }
 }

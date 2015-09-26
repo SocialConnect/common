@@ -12,11 +12,11 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 {
     public function testConstructSuccess()
     {
-        $this->assertSame(Response::STATUS_OK, 200);
+        static::assertSame(Response::STATUS_OK, 200);
 
         $response = new Response(Response::STATUS_OK, 'test string');
-        $this->assertSame(Response::STATUS_OK, $response->getStatusCode());
-        $this->assertSame('test string', $response->getBody());
-        $this->assertTrue($response->isOk());
+        static::assertSame(Response::STATUS_OK, $response->getStatusCode());
+        static::assertSame('test string', $response->getBody());
+        static::assertTrue($response->isOk());
     }
 }
