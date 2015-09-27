@@ -14,7 +14,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     {
         static::assertSame(Response::STATUS_OK, 200);
 
-        $response = new Response(Response::STATUS_OK, 'test string');
+        $response = new Response(Response::STATUS_OK, 'test string', array());
         static::assertSame(Response::STATUS_OK, $response->getStatusCode());
         static::assertSame('test string', $response->getBody());
         static::assertTrue($response->isOk());
