@@ -9,7 +9,7 @@
 namespace SocialConnect\Common\Http\Client\Response;
 
 
-class HeadersParse
+class HeadersParser
 {
     protected $headers = array();
 
@@ -20,7 +20,12 @@ class HeadersParse
      */
     public function parseHeaders($client, $headerLine)
     {
-        $this->headers[] = $headerLine;
+        $parts = explode(':', $headerLine, 2);
+        if (count($parts) == 2) {
+            list ($name, $value) = $parts;
+            $this->headers[trim($name)] = trim($value);
+        }
+
         return strlen($headerLine);
     }
 

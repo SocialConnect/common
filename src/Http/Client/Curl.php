@@ -7,7 +7,7 @@
 namespace SocialConnect\Common\Http\Client;
 
 use InvalidArgumentException;
-use SocialConnect\Common\Http\Client\Response\HeadersParse;
+use SocialConnect\Common\Http\Client\Response\HeadersParser;
 use SocialConnect\Common\Http\Response;
 use SocialConnect\Common\Exception;
 use RuntimeException;
@@ -119,7 +119,7 @@ class Curl extends Client
             curl_setopt($this->client, $key, $value);
         }
 
-        $headersParser = new HeadersParse();
+        $headersParser = new HeadersParser();
         curl_setopt($this->client, CURLOPT_HEADERFUNCTION, array($headersParser, 'parseHeaders'));
         curl_setopt($this->client, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($this->client, CURLOPT_URL, $uri);
