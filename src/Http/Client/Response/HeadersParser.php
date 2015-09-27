@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: ovr
- * Date: 26.09.15
- * Time: 18:28
+ * SocialConnect project
+ * @author: Patsura Dmitry https://github.com/ovr <talk@dmtry.me>
  */
 
 namespace SocialConnect\Common\Http\Client\Response;
