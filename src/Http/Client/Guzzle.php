@@ -37,6 +37,12 @@ class Guzzle extends Client
             case Client::POST:
                 $response = $this->client->post($uri, ['form_params' => $parameters, 'headers' => $headers]);
                 break;
+            case Client::PUT:
+                $response = $this->client->put($uri, ['form_params' => $parameters, 'headers' => $headers]);
+                break;
+            case Client::DELETE:
+                $response = $this->client->delete($uri, ['query' => $parameters, 'headers' => $headers]);
+                break;
             default:
                 throw new InvalidArgumentException("Method {$method} is not supported");
         }
