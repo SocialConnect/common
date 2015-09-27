@@ -9,6 +9,9 @@ namespace SocialConnect\Common\Http\Client\Response;
 
 class HeadersParser
 {
+    /**
+     * @var array
+     */
     protected $headers = array();
 
     /**
