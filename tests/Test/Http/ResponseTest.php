@@ -19,4 +19,14 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         static::assertSame('test string', $response->getBody());
         static::assertTrue($response->isOk());
     }
+
+    public function testHeadersMethods()
+    {
+        $value = '123fdsf23423';
+
+        $response = new Response(Response::STATUS_OK, 'test string', array('X-AUTH-TOKEN' => $value));
+        static::assertFalse($response->hasHeader('X-AUTH'));
+        static::assertTrue($response->hasHeader('X-AUTH-TOKEN'));
+        static::assertSame($value, $response->getHeader('X-AUTH-TOKEN'));
+    }
 }
