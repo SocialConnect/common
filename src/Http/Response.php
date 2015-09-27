@@ -95,6 +95,14 @@ class Response implements ResponseInterface
     }
 
     /**
+     * @return boolean
+     */
+    public function hasHeader($name)
+    {
+        return isset($this->headers[$name]);
+    }
+
+    /**
      * @param string $name
      * @return mixed
      */
