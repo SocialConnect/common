@@ -26,8 +26,8 @@ class Response implements ResponseInterface
     protected $headers;
 
     /**
-     * @param $statusCode
-     * @param $body
+     * @param integer $statusCode
+     * @param string|null $body
      * @param array $headers
      */
     public function __construct($statusCode, $body, array $headers)
