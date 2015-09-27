@@ -41,6 +41,6 @@ class Guzzle extends Client
                 throw new InvalidArgumentException("Method {$method} is not supported");
         }
 
-        return new Response($response->getStatusCode(), (string) $response->getBody());
+        return new Response($response->getStatusCode(), (string) $response->getBody(), $response->getHeaders());
     }
 }
