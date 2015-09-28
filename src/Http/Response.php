@@ -79,6 +79,16 @@ class Response implements ResponseInterface
     }
 
     /**
+     * Does the status code indicate the resource is not found?
+     *
+     * @return bool
+     */
+    public function isNotFound()
+    {
+        return 404 === $this->statusCode;
+    }
+
+    /**
      * @return int
      */
     public function getStatusCode()
