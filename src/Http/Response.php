@@ -89,6 +89,16 @@ class Response implements ResponseInterface
     }
 
     /**
+     * Was the response successful?
+     * 
+     * @return bool
+     */
+    public function isSuccess()
+    {
+        return (200 <= $this->statusCode && 300 > $this->statusCode);
+    }
+
+    /**
      * @return int
      */
     public function getStatusCode()
