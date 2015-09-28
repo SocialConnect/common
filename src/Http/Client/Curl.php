@@ -126,7 +126,15 @@ class Curl extends Client
 
         $result = curl_exec($this->client);
         if ($result === false) {
-            throw new Exception(curl_error($this->client), curl_errno($this->client));
+            throw new Curl\RequestException(
+                curl_error($this->client),
+                curl_errno($this->client),
+                [
+                    'uri' => $uri,
+                    'method' => $method,
+                    'parameters' => $parameters
+                ]
+            );
         }
 
         $response = new Response(curl_getinfo($this->client, CURLINFO_HTTP_CODE), $result, $headersParser->getHeaders());
