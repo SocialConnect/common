@@ -19,7 +19,7 @@ class RequestException extends \Exception
      * @param int $code
      * @param array $parameters Request parameters
      */
-    public function __construct($message, $code = 0, array $parameters)
+    public function __construct($message, $code, array $parameters)
     {
         parent::__construct($message, $code);
 
