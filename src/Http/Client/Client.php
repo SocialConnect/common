@@ -6,6 +6,8 @@
 
 namespace SocialConnect\Common\Http\Client;
 
+use SocialConnect\Common\Http\Request;
+
 abstract class Client implements ClientInterface
 {
     /**
@@ -42,4 +44,13 @@ abstract class Client implements ClientInterface
      * @var string
      */
     const DELETE = 'DELETE';
+
+    /**
+     * @param Request $request
+     * @return \SocialConnect\Common\Http\Response
+     */
+    public function fromRequest(Request $request)
+    {
+        return $this->request($request->getUri(), $request->getParameters(), $request->getMethod());
+    }
 }
