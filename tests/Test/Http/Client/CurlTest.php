@@ -30,5 +30,16 @@ class CurlTest extends \PHPUnit_Framework_TestCase
         static::assertInternalType('integer', $response->getStatusCode());
         static::assertInternalType('object', $response->json());
         static::assertInternalType('array', $response->json(true));
+
+        /**
+         * Test after request
+         */
+        $this->assertInternalType('resource', $client->getCurlHandler());
+    }
+
+    public function testGetCurlHandler()
+    {
+        $client = new Curl();
+        $this->assertInternalType('resource', $client->getCurlHandler());
     }
 }
