@@ -39,7 +39,7 @@ class Curl extends Client
         }
 
         if (!extension_loaded('curl')) {
-            throw new RuntimeException('You need to install curl-ext for use SocialConnect-Http\Client\Curl.');
+            throw new RuntimeException('You need to install curl-ext to use SocialConnect-Http\Client\Curl.');
         }
 
         $this->client = curl_init();
