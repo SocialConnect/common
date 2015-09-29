@@ -19,7 +19,7 @@ class Curl extends Client
      *
      * @var resource
      */
-    protected $client;
+    protected $curlHandler;
 
     protected $parameters = array(
         CURLOPT_USERAGENT => 'SocialConnect\Curl (https://github.com/socialconnect/common) v0.6',
@@ -42,7 +42,7 @@ class Curl extends Client
             throw new RuntimeException('You need to install curl-ext to use SocialConnect-Http\Client\Curl.');
         }
 
-        $this->client = curl_init();
+        $this->curlHandler = curl_init();
     }
 
     /**
@@ -52,17 +52,17 @@ class Curl extends Client
     {
         switch ($method) {
             case Client::POST:
-                curl_setopt($this->client, CURLOPT_POST, true);
+                curl_setopt($this->curlHandler, CURLOPT_POST, true);
                 break;
             case Client::GET:
-                curl_setopt($this->client, CURLOPT_HTTPGET, true);
+                curl_setopt($this->curlHandler, CURLOPT_HTTPGET, true);
                 break;
             case Client::DELETE:
             case Client::PATCH:
             case Client::OPTIONS:
             case Client::PUT:
             case Client::HEAD:
-                curl_setopt($this->client, CURLOPT_CUSTOMREQUEST, $method);
+                curl_setopt($this->curlHandler, CURLOPT_CUSTOMREQUEST, $method);
                 break;
             default:
                 throw new InvalidArgumentException("Method {$method} is not supported");
@@ -76,7 +76,7 @@ class Curl extends Client
                         $fields[] = urlencode($name) . '=' . urlencode($value);
                     }
 
-                    curl_setopt($this->client, CURLOPT_POSTFIELDS, implode('&', $fields));
+                    curl_setopt($this->curlHandler, CURLOPT_POSTFIELDS, implode('&', $fields));
                     unset($fields);
                 }
                 break;
@@ -116,19 +116,19 @@ class Curl extends Client
          * Setup default parameters
          */
         foreach ($this->parameters as $key => $value) {
-            curl_setopt($this->client, $key, $value);
+            curl_setopt($this->curlHandler, $key, $value);
         }
 
         $headersParser = new HeadersParser();
-        curl_setopt($this->client, CURLOPT_HEADERFUNCTION, array($headersParser, 'parseHeaders'));
-        curl_setopt($this->client, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($this->client, CURLOPT_URL, $uri);
+        curl_setopt($this->curlHandler, CURLOPT_HEADERFUNCTION, array($headersParser, 'parseHeaders'));
+        curl_setopt($this->curlHandler, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($this->curlHandler, CURLOPT_URL, $uri);
 
-        $result = curl_exec($this->client);
+        $result = curl_exec($this->curlHandler);
         if ($result === false) {
             throw new Curl\RequestException(
-                curl_error($this->client),
-                curl_errno($this->client),
+                curl_error($this->curlHandler),
+                curl_errno($this->curlHandler),
                 [
                     'uri' => $uri,
                     'method' => $method,
@@ -137,16 +137,16 @@ class Curl extends Client
             );
         }
 
-        $response = new Response(curl_getinfo($this->client, CURLINFO_HTTP_CODE), $result, $headersParser->getHeaders());
+        $response = new Response(curl_getinfo($this->curlHandler, CURLINFO_HTTP_CODE), $result, $headersParser->getHeaders());
 
         if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
             /**
              * Reset all options of a libcurl client after request
              */
-            curl_reset($this->client);
+            curl_reset($this->curlHandler);
         } else {
-            unset($this->client);
-            $this->client = curl_init();
+            unset($this->curlHandler);
+            $this->curlHandler = curl_init();
         }
 
         return $response;
@@ -158,7 +158,7 @@ class Curl extends Client
      */
     public function setOption($option, $value)
     {
-        curl_setopt($this->client, $option, $value);
+        curl_setopt($this->curlHandler, $option, $value);
     }
 
     /**
@@ -175,5 +175,13 @@ class Curl extends Client
     public function setParameters($parameters)
     {
         $this->parameters = $parameters;
+    }
+
+    /**
+     * @return resource
+     */
+    public function getCurlHandler()
+    {
+        return $this->curlHandler;
     }
 }
