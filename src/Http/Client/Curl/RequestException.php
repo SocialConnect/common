@@ -6,7 +6,7 @@
 
 namespace SocialConnect\Common\Http\Client\Curl;
 
-class RequestException extends \Exception
+class RequestException extends \RuntimeException
 {
     /**
      * @var array
