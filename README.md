@@ -11,7 +11,7 @@ SocialConnect Common
 + User
 + Friend
 
-You can intance and setup fields for entity
+You can instance and setup fields for entity
 
 ```php
 $user = new \SocialConnect\Common\Entity\User();
