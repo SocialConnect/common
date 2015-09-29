@@ -6,7 +6,7 @@ SocialConnect Common
 [![Dependency Status](https://www.versioneye.com/user/projects/55d04f643554d8000d000170/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55d04f643554d8000d000170)
 [![License](http://img.shields.io/packagist/l/SocialConnect/common.svg?style=flat-square)](https://packagist.org/packages/socialconnect/common)
 
-## Enitity
+## Entity
 
 + User
 + Friend
