@@ -27,13 +27,13 @@ var_dump($user);
 You can use `Curl` client
 
 ```php
-  $httpClient = new SocialConnect\Common\Http\Client\Curl();
+$httpClient = new SocialConnect\Common\Http\Client\Curl();
 ```
 
 or `Guzzle` wrapper for GuzzleHttp library
 
 ```php
-  $httpClient = new SocialConnect\Common\Http\Client\Guzzle();
+$httpClient = new SocialConnect\Common\Http\Client\Guzzle();
 ```
 
 ## Build `Client` for your REST application
