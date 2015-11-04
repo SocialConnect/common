@@ -16,7 +16,8 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "~2.3",
         "phpunit/phpunit": "~4.2",
-        "guzzlehttp/guzzle": "~5.3|~6.0"
+        "guzzlehttp/guzzle": "~5.3|~6.0",
+        "doctrine/cache": "~1.5.1"
     },
     "suggest": {
         "guzzlehttp/guzzle" : "Allows to use Http\\Client\\Guzzle, require guzzlehttp/guzzle:~5.3|~6.0."
