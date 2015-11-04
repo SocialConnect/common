@@ -55,7 +55,7 @@ class Cache implements ClientInterface
 
     public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
     {
-        $key = $this->makeCacheKey($url, $parameters);
+        $key = $this->makeCacheKey($method, $url, $parameters);
         if ($key) {
             if ($this->cache->contains($key)) {
                 return $this->cache->fetch($key);
