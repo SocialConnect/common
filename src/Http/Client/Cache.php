@@ -24,8 +24,31 @@ class Cache implements ClientInterface
         $this->cache = $cache;
     }
 
+    /**
+     * @param string $url
+     * @param array $parameters
+     * @return string
+     */
+    protected function makeCacheKey($url, array $parameters = array())
+    {
+        $key = $url;
+        $key .= implode('&', $parameters);
+
+        return $key;
+    }
+
     public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
     {
-        $this->client->request($url, $parameters, $method, $headers, $options);
+        switch ($parameters) {
+            case Client::GET:
+                $key = $this->makeCacheKey($url, $parameters);
+                if ($this->cache->contains($key)) {
+                    return $this->cache->fetch($key);
+                }
+                break;
+        }
+
+        $result = $this->client->request($url, $parameters, $method, $headers, $options);
+        return $result;
     }
 }
