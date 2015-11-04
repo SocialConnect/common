@@ -18,19 +18,35 @@ class Cache implements ClientInterface
      */
     protected $cache;
 
-    public function __construct(Client $client, \Doctrine\Common\Cache\Cache $cache)
+    /**
+     * @var int
+     */
+    protected $lifetime;
+
+    /**
+     * @param Client $client
+     * @param \Doctrine\Common\Cache\Cache $cache
+     * @param int $lifetime
+     */
+    public function __construct(Client $client, \Doctrine\Common\Cache\Cache $cache, $lifetime = 60*60)
     {
         $this->client = $client;
         $this->cache = $cache;
+        $this->lifetime = (int) $lifetime;
     }
 
     /**
+     * @param string $method
      * @param string $url
      * @param array $parameters
      * @return string
      */
-    protected function makeCacheKey($url, array $parameters = array())
+    protected function makeCacheKey($method, $url, array $parameters = array())
     {
+        if ($method != Client::GET) {
+            return null;
+        }
+
         $key = $url;
         $key .= implode('&', $parameters);
 
@@ -39,16 +55,18 @@ class Cache implements ClientInterface
 
     public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
     {
-        switch ($parameters) {
-            case Client::GET:
-                $key = $this->makeCacheKey($url, $parameters);
-                if ($this->cache->contains($key)) {
-                    return $this->cache->fetch($key);
-                }
-                break;
+        $key = $this->makeCacheKey($url, $parameters);
+        if ($key) {
+            if ($this->cache->contains($key)) {
+                return $this->cache->fetch($key);
+            }
         }
 
         $result = $this->client->request($url, $parameters, $method, $headers, $options);
+        if ($key) {
+            $this->cache->save($key, $result, $this->lifetime);
+        }
+
         return $result;
     }
 }
