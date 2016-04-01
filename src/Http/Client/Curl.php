@@ -147,6 +147,11 @@ class Curl extends Client
         return $response;
     }
 
+    public function __destruct()
+    {
+        curl_close($this->curlHandler);
+    }
+
     /**
      * @param $option
      * @param $value
