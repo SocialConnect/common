@@ -35,12 +35,12 @@ class CurlTest extends \PHPUnit_Framework_TestCase
         /**
          * Test after request
          */
-        $this->assertInternalType('resource', $client->getCurlHandler());
+        static::assertInternalType('resource', $client->getCurlHandler());
     }
 
     public function testGetCurlHandler()
     {
         $client = new Curl();
-        $this->assertInternalType('resource', $client->getCurlHandler());
+        static::assertInternalType('resource', $client->getCurlHandler());
     }
 }
