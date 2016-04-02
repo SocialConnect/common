@@ -14,9 +14,6 @@ class CurlTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Curl();
         static::assertInstanceOf('SocialConnect\Common\Http\Client\Client', $client);
-
-        $client = new Curl();
-        static::assertInstanceOf('SocialConnect\Common\Http\Client\Client', $client);
     }
 
     public function testRequest()
