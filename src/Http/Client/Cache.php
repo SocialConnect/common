@@ -39,7 +39,7 @@ class Cache implements ClientInterface
      * @param string $method
      * @param string $url
      * @param array $parameters
-     * @return string
+     * @return string|null
      */
     protected function makeCacheKey($method, $url, array $parameters = array())
     {
