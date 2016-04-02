@@ -47,6 +47,7 @@ class Curl extends Client
 
     /**
      * {@inheritdoc}
+     * @throws \SocialConnect\Common\Http\Client\Curl\RequestException
      */
     public function request($uri, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
     {
