@@ -47,10 +47,15 @@ class Cache implements ClientInterface
             return null;
         }
 
-        $key = $url;
-        $key .= implode('&', $parameters);
+        $cacheKey = $url;
 
-        return $key;
+        if ($parameters) {
+            foreach ($parameters as $key => $value) {
+                $cacheKey .= $key . '-' . $value;
+            }
+        }
+
+        return $cacheKey;
     }
 
     public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array())
