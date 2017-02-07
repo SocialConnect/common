@@ -26,17 +26,24 @@ class Request
     protected $parameters;
 
     /**
+     * @var array
+     */
+    protected $headers;
+
+    /**
      * Request constructor.
      *
      * @param string $uri
      * @param array $parameters
      * @param string $method
+     * @param array $headers
      */
-    public function __construct($uri, array $parameters = array(), $method = Client::GET)
+    public function __construct($uri, array $parameters = array(), $method = Client::GET, array $headers = [])
     {
         $this->uri = $uri;
         $this->method = $method;
         $this->parameters = $parameters;
+        $this->headers = $headers;
     }
 
     /**
@@ -61,5 +68,13 @@ class Request
     public function getUri()
     {
         return $this->uri;
+    }
+
+    /**
+     * @return array
+     */
+    public function getHeaders()
+    {
+        return $this->headers;
     }
 }

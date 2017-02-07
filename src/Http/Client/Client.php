@@ -51,6 +51,11 @@ abstract class Client implements ClientInterface
      */
     public function fromRequest(Request $request)
     {
-        return $this->request($request->getUri(), $request->getParameters(), $request->getMethod());
+        return $this->request(
+            $request->getUri(),
+            $request->getParameters(),
+            $request->getMethod(),
+            $request->getHeaders()
+        );
     }
 }
