@@ -6,6 +6,8 @@
 
 namespace SocialConnect\Common\Http\Client;
 
+use SocialConnect\Common\Http\Request;
+
 interface ClientInterface
 {
     /**
@@ -19,4 +21,10 @@ interface ClientInterface
      * @return \SocialConnect\Common\Http\Response
      */
     public function request($url, array $parameters = array(), $method = Client::GET, array $headers = array(), array $options = array());
+
+    /**
+     * @param Request $request
+     * @return \SocialConnect\Common\Http\Response
+     */
+    public function fromRequest(Request $request);
 }
