@@ -33,6 +33,11 @@ class User extends \stdClass
     public $email;
 
     /**
+     * @var bool
+     */
+    public $emailVerified = false;
+
+    /**
      * @var string|null
      */
     public $birthday;
