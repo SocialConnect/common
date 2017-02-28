@@ -22,7 +22,7 @@ class Curl extends Client
     protected $curlHandler;
 
     protected $parameters = array(
-        CURLOPT_USERAGENT => 'SocialConnect\Curl (https://github.com/socialconnect/common) v0.6',
+        CURLOPT_USERAGENT => 'SocialConnect\Curl (https://github.com/socialconnect/common) v1.0',
         CURLOPT_HEADER => false,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CONNECTTIMEOUT => 0,
