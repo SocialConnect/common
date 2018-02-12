@@ -21,6 +21,9 @@ class Curl extends Client
      */
     protected $curlHandler;
 
+    /**
+     * @var array
+     */
     protected $parameters = array(
         CURLOPT_USERAGENT => 'SocialConnect\Curl (https://github.com/socialconnect/common) v1.0',
         CURLOPT_HEADER => false,
@@ -34,12 +37,12 @@ class Curl extends Client
      */
     public function __construct(array $parameters = null)
     {
-        if ($parameters) {
-            $this->parameters = array_merge($this->parameters, $parameters);
-        }
-
         if (!extension_loaded('curl')) {
             throw new RuntimeException('You need to install curl-ext to use SocialConnect-Http\Client\Curl.');
+        }
+
+        if ($parameters) {
+            $this->parameters = array_replace($this->parameters, $parameters);
         }
 
         $this->curlHandler = curl_init();
