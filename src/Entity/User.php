@@ -58,4 +58,9 @@ class User extends \stdClass
      * @var string|null
      */
     public $fullname;
+
+    /**
+     * @var string|null
+     */
+    public $pictureURL;
 }
