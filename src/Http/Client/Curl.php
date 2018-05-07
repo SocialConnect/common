@@ -29,7 +29,9 @@ class Curl extends Client
         CURLOPT_HEADER => false,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CONNECTTIMEOUT => 0,
-        CURLOPT_TIMEOUT => 30
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_MAXREDIRS => 2
     );
 
     /**
