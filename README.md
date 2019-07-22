@@ -5,6 +5,7 @@ SocialConnect Common
 [![Code Coverage](https://scrutinizer-ci.com/g/SocialConnect/common/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/SocialConnect/common/?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/55d04f643554d8000d000170/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55d04f643554d8000d000170)
 [![License](http://img.shields.io/packagist/l/SocialConnect/common.svg?style=flat-square)](https://packagist.org/packages/socialconnect/common)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSocialConnect%2Fcommon.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSocialConnect%2Fcommon?ref=badge_shield)
 
 ## Entity
 
@@ -83,3 +84,7 @@ License
 This project is open-sourced software licensed under the MIT License.
 
 See the LICENSE file for more information.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSocialConnect%2Fcommon.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSocialConnect%2Fcommon?ref=badge_large)
